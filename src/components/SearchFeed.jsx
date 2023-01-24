@@ -18,11 +18,11 @@ const SearchFeed = () => {
 
     return (
         <Box p={2} minHeight="95vh" >
-            <Typography variant="h4" fontweight={900} colr="white" mb={3} ml={{ sm: "100px" }}>
-                Search results for <span style={{ colr: "#FC1503" }}> {searchTerm}</span> Videos
+            <Typography variant="h4" fontWeight={900} color="white" mb={3} ml={{ sm: "100px" }}>
+                Search results for <span style={{ color: "#FC1503" }}> {searchTerm}</span> Videos
             </Typography>
 
-            <Box display="flex" >
+            <Box display="flex" justifyContent="center" >
                 <Box sx={{ mr: { sm: '100px' } }} />
                 {<Videos videos={videos} />}
             </Box>

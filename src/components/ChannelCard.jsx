@@ -13,9 +13,9 @@ const ChannelCard = ({ channelDetail, marginTop }) => (
             justifyContent: "center",
             alignItems: "center",
             // width: { xs: "356px", md: "320px" },
-            width: { xs: "100%", sm: "358px", md: "320px" },
+            width: { xs: "356px", md: "320px" },
             height: "326px",
-            margin: "auto",
+            margin: "auto 5%",
             marginTop
         }}
     >
