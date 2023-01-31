@@ -16,7 +16,7 @@ const VideoDetail = () => {
         fetchfromAPI(`videos?part=contentDetails%2Csnippet%2Cstatistics&id=${id}`)
             .then((data) => setVideoDetail(data.items[0]))
 
-        fetchfromAPI(`/search?relatedToVideoId=${id}&type=video&maxResults=50`)
+        fetchfromAPI(`search?relatedToVideoId=${id}&part=id%2Csnippet&type=video&maxResults=50`)
             .then((data) => setVideos(data.items))
     }, [id]);
 
