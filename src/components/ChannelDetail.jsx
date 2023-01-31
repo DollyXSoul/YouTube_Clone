@@ -6,7 +6,7 @@ import { fetchfromAPI } from '../utilities/fetchfromAPI';
 
 
 const ChannelDetail = () => {
-    const [channelDetail, setChannelDetail] = useState();
+    const [channelDetail, setChannelDetail] = useState(null);
     const [videos, setVideos] = useState(null);
 
     const { id } = useParams();
@@ -31,11 +31,11 @@ const ChannelDetail = () => {
             <Box>
                 <div style={{
                     height: "300px",
-                    background: "linear-gradient(90eg ,rgba(0,238,247,1) 0% , rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)",
-                    zIndex: 10
+                    background: "linear-gradient(90deg, rgba(0,238,247,1) 0%, rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)",
+                    zIndex: 10,
                 }} />
-                <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
 
+                <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
             </Box>
             <Box p={2} display="flex">
                 <Box sx={{ mr: { sm: "100px" } }} />
@@ -46,6 +46,5 @@ const ChannelDetail = () => {
 };
 
 export default ChannelDetail;
-
 
 

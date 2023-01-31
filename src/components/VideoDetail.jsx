@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player/youtube';
 import { Typography, Box, Stack } from '@mui/material';
-
-import { Videos } from './';
+import { Videos, Loader } from './';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { fetchfromAPI } from '../utilities/fetchfromAPI';
-
 
 
 const VideoDetail = () => {
@@ -22,7 +20,10 @@ const VideoDetail = () => {
             .then((data) => setVideos(data.items))
     }, [id]);
 
+    if (!videoDetail?.snippet) return <Loader />
+
     const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
+
     return (
         <Box minHeight="95vh">
             <Stack direction={{ xs: "column", md: "row" }}>
@@ -55,7 +56,7 @@ const VideoDetail = () => {
                 </Box>
             </Stack>
         </Box>
-    )
-}
+    );
+};
 
 export default VideoDetail

@@ -1,6 +1,4 @@
-
 const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
-
 
 const options = {
     method: 'GET',
@@ -14,7 +12,6 @@ export const fetchfromAPI = async (url) => {
     let data = await fetch(`${BASE_URL}/${url}`, options);
 
     data = await data.json();
-    console.log(data);
 
     return data;
 

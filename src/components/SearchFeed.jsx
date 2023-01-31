@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-
 import { fetchfromAPI } from '../utilities/fetchfromAPI';
 import { Videos } from "./";
 
@@ -22,12 +21,12 @@ const SearchFeed = () => {
                 Search results for <span style={{ color: "#FC1503" }}> {searchTerm}</span> Videos
             </Typography>
 
-            <Box display="flex" justifyContent="center" >
+            <Box display="flex"  >
                 <Box sx={{ mr: { sm: '100px' } }} />
                 {<Videos videos={videos} />}
             </Box>
         </Box>
-    )
+    );
 };
 
 export default SearchFeed
