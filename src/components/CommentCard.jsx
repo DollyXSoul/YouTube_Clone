@@ -2,24 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { Typography, Card, CardContent, Grid, Avatar } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelUrl, demoChannelTitle } from '../utilities/constants';
+import { demoThumbnailUrl, demoVideoTitle, demoChannelUrl, demoChannelTitle } from '../utilities/constants';
 
 
 const CommentCard = ({ comment: { snippet } }) => (
-
-
 
   <Card sx={{
     minWidth: "100%",
     borderRadius: 0
   }}>
-    {/* <Link to={videoId ? `/video/${videoId}` : demoVideoUrl} >
-      <CardMedia image={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
-        alt={snippet?.title}
-        sx={{ width: { xs: "100%", sm: "358px", md: "320px" }, height: 180 }}
-      />
-    </Link>
-*/}
+
     <CardContent sx={{ backgroundColor: "#1E1E1E" }} >
       <Link to={snippet.topLevelComment.snippet?.authorChannelId?.value ? `/channel/${snippet.topLevelComment.snippet?.authorChannelId?.value}` : demoChannelUrl}>
         <Grid container wrap="nowrap" spacing={1}>

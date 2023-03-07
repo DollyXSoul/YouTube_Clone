@@ -17,7 +17,6 @@ const Comments = ({ videoId }) => {
 
   if (!comments?.length) return <Loader />
 
-
   return (
     <Box width="100%">
       <Typography variant="h5" color="#fff" pb={1}>
@@ -28,10 +27,8 @@ const Comments = ({ videoId }) => {
           <Box key={idx} width="100%" >
             <CommentCard comment={item} />
           </Box>
-        ))
-        }
+        ))}
       </Stack >
-
     </Box>
   )
 }
