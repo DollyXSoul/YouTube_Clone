@@ -27,17 +27,12 @@ const VideoDetail = () => {
 
 
 
-    const handleComments = () => {
 
-
-        setdisabled(true);
-
-    };
 
     return (
-        <Box minHeight="95vh" maxWidth="100vw">
+        <Box minHeight="95vh" maxWidth="100vw" >
             <Stack direction={{ xs: "column", md: "row" }}>
-                <Box flex={1} px={1}>
+                <Box flex={1} px={1} pt={1}>
                     <Box sx={{ width: { xs: "100%" } }}>
                         <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
                         <Typography color="#fff" variant="h6" fontWeight="bold" p={2} pb={1}>
@@ -59,14 +54,14 @@ const VideoDetail = () => {
                                 </Typography>
                             </Stack>
                         </Stack>
-                        <Box sx={{ maxWidth: { xs: "100vw", md: "75vw" } }}>
-                            <Button color="primary" variant="contained" disabled={disabled} onClick={handleComments} >View Comments</Button>
+                        <Box sx={{ maxWidth: { xs: "100vw", md: "75vw" } }} >
+                            <Button variant="contained" sx={{ backgroundColor: "#37474f" }} fullWidth={"true"} onClick={() => setdisabled((prev) => (!prev))}>{disabled ? "Hide Comments" : "Show Comments"}</Button>
                             {disabled && <Comments videoId={id} />}
                         </Box>
                     </Box>
 
                 </Box>
-                <Box py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >
+                <Box py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center">
                     <Videos videos={videos} direction={{ xs: "row", md: "column" }} />
                 </Box>
             </Stack>
