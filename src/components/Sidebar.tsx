@@ -2,8 +2,13 @@ import React from 'react'
 import { Stack } from '@mui/material';
 import { categories } from '../utilities/constants';
 
+interface SideBarProps {
+    selectedCategory: string;
+    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+  }
 
-const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
+
+const Sidebar = ({ selectedCategory, setSelectedCategory } : SideBarProps) => (
 
     <Stack
         direction="row"
