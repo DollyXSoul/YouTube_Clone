@@ -24,7 +24,9 @@ const Videos = ({ videos, direction }: VideosProps) => {
             key={idx}
             sx={{ width: { xs: "100%", sm: "358px", md: "320px" } }}
           >
-            {item.id.videoId && <VideoCard video={item} />}
+            {item.id.videoId && (
+              <VideoCard videoId={item.id.videoId} snippet={item.snippet} />
+            )}
             {item.id.channelId && <ChannelCard channelDetail={item} />}
           </Box>
         ))}

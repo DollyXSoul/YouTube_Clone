@@ -40,12 +40,7 @@ const CommentCard = ({ snippet }: CommentCardProps) => (
             />
           </Grid>
           <Grid item mt={1}>
-            <Typography
-              variant="subtitle1"
-              fontWeight="bold"
-              color="gray"
-              gutterBottom
-            >
+            <Typography variant="subtitle1" fontWeight="bold" color="gray">
               {snippet.topLevelComment.snippet?.authorDisplayName.slice(
                 0,
                 25
@@ -55,7 +50,7 @@ const CommentCard = ({ snippet }: CommentCardProps) => (
         </Grid>
       </Link>
 
-      <Typography variant="subtitle2" color="#FFF" pt={1} paragraph="true">
+      <Typography variant="subtitle2" color="#FFF">
         {snippet.topLevelComment.snippet?.textOriginal || demoChannelTitle}
       </Typography>
 

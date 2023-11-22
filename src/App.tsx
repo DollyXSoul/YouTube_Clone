@@ -10,7 +10,6 @@ import {
   ChannelDetail,
 } from "./components";
 import ScrollToTop from "./utilities/ScrollToTop";
-import { ReactElement } from "react";
 
 const App: React.FC = () => (
   <BrowserRouter>

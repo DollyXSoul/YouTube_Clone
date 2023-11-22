@@ -6,12 +6,15 @@ import { Videos, Loader, Comments } from "./";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { fetchfromAPI } from "../utilities/fetchfromAPI";
 import { VideoDetailType, VideoItem } from "../types";
+import { useMediaQuery } from "usehooks-ts";
 
 const VideoDetail: React.FC = () => {
   const [videoDetail, setVideoDetail] = useState<VideoDetailType>();
   const [videos, setVideos] = useState<VideoItem[]>([]);
   const { id } = useParams() as { id: string };
   const [disabled, setdisabled] = useState(false);
+
+  const isMd: boolean = useMediaQuery("(min-width:900px)");
 
   useEffect(() => {
     fetchfromAPI(
@@ -57,10 +60,7 @@ const VideoDetail: React.FC = () => {
               px={2}
             >
               <Link to={`/channel/${channelId}`}>
-                <Typography
-                  variant={{ sm: "subtitle1", md: "h6" }}
-                  color="#fff"
-                >
+                <Typography variant="subtitle1" color="#fff">
                   {channelTitle}
                   <CheckCircleIcon
                     sx={{ fontSize: "12px", color: "gray", ml: "5px" }}
@@ -80,7 +80,7 @@ const VideoDetail: React.FC = () => {
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "#37474f" }}
-                fullWidth={"true"}
+                fullWidth={false}
                 onClick={() => setdisabled((prev) => !prev)}
               >
                 {disabled ? "Hide Comments" : "Show Comments"}
@@ -90,7 +90,7 @@ const VideoDetail: React.FC = () => {
           </Box>
         </Box>
         <Box py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center">
-          <Videos videos={videos} direction={{ xs: "row", md: "column" }} />
+          <Videos videos={videos} direction={isMd ? "column" : "row"} />
         </Box>
       </Stack>
     </Box>
