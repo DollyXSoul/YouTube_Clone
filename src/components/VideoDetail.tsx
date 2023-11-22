@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
 import { Typography, Box, Stack, Button } from "@mui/material";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { Videos, Loader, Comments } from "./";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { fetchfromAPI } from "../utilities/fetchfromAPI";
@@ -34,7 +35,13 @@ const VideoDetail: React.FC = () => {
   } = videoDetail;
 
   return (
-    <Box minHeight="95vh" maxWidth="100vw">
+    <Box
+      maxWidth="100vw"
+      sx={{
+        height: "90vh",
+        overflowY: "auto",
+      }}
+    >
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1} px={1} pt={1}>
           <Box sx={{ width: { xs: "100%" } }}>
@@ -77,14 +84,28 @@ const VideoDetail: React.FC = () => {
               </Stack>
             </Stack>
             <Box sx={{ maxWidth: { xs: "100vw", md: "75vw" } }}>
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "#37474f" }}
-                fullWidth={false}
-                onClick={() => setdisabled((prev) => !prev)}
+              <Box
+                display="flex"
+                justifyContent="center"
+                sx={{ maxWidth: { xs: "100vw", md: "75vw" } }}
               >
-                {disabled ? "Hide Comments" : "Show Comments"}
-              </Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    backgroundColor: "#566166",
+                    color: "#fff",
+                    paddingX: "18px",
+                    border: "1px solid #000",
+                    borderRadius: "100px",
+                    width: "50vw",
+                  }}
+                  fullWidth={false}
+                  onClick={() => setdisabled((prev) => !prev)}
+                  startIcon={<ChatBubbleIcon />}
+                >
+                  {disabled ? "Hide Comments" : "Show Comments"}
+                </Button>
+              </Box>
               {disabled && <Comments videoId={id} />}
             </Box>
           </Box>

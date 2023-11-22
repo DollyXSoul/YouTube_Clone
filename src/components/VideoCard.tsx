@@ -21,17 +21,23 @@ const VideoCard = ({ videoId, snippet }: VideoCardProps) => (
     sx={{
       width: { xs: "100%", sm: "358px", md: "320px" },
       boxShadow: "none",
-      borderRadius: 0,
+      backgroundColor: "#000",
     }}
+    className="videocard"
   >
     <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
       <CardMedia
         image={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
-        sx={{ width: { xs: "100%", sm: "358px", md: "320px" }, height: 180 }}
+        sx={{
+          width: { xs: "100%", sm: "358px", md: "320px" },
+          height: 180,
+
+          backgroundColor: "#000",
+        }}
       />
     </Link>
 
-    <CardContent sx={{ backgroundColor: "#1E1E1E", height: "106px" }}>
+    <CardContent sx={{ backgroundColor: "#171616", height: "106px" }}>
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <Typography variant="subtitle1" fontWeight="bold" color="#FFF">
           {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}

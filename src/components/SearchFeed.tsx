@@ -16,7 +16,7 @@ const SearchFeed = () => {
   }, [searchTerm]);
 
   return (
-    <Box p={2} minHeight="95vh">
+    <Box p={2} maxHeight="90vh">
       <Typography
         variant="h4"
         fontWeight={900}
@@ -28,9 +28,9 @@ const SearchFeed = () => {
         <span style={{ color: "#FC1503" }}> {searchTerm}</span> Videos
       </Typography>
 
-      <Box display="flex">
+      <Box display="flex" sx={{ height: "80vh" }}>
         <Box sx={{ mr: { sm: "100px" } }} />
-        {<Videos videos={videos} />}
+        {<Videos videos={videos} direction="row" />}
       </Box>
     </Box>
   );

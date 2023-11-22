@@ -16,11 +16,10 @@ const Feed = () => {
   }, [selectedCategory]);
 
   return (
-    <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+    <Stack sx={{ flexDirection: { sx: "column", lg: "row" } }}>
       <Box
         sx={{
-          height: { sx: "auto", md: "92vh" },
-          borderRight: "1px solid #3d3d3d ",
+          height: { xs: "auto", lg: "86vh" },
           px: { sx: 0, md: 2 },
         }}
       >
@@ -38,7 +37,7 @@ const Feed = () => {
         </Typography>
       </Box>
 
-      <Box p={4} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+      <Box p={4} mb={1} sx={{ overflowY: "scroll", height: "80vh", flex: 2 }}>
         <Typography
           variant="h4"
           fontWeight="bold"

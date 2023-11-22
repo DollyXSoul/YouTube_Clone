@@ -32,11 +32,11 @@ const ChannelDetail = () => {
   }, [id]);
 
   return (
-    <Box minHeight="95vh">
+    <Box maxHeight="90vh" sx={{ overflowY: "scroll" }}>
       <Box>
         <div
           style={{
-            height: "300px",
+            height: "280px",
             background:
               "linear-gradient(90deg, rgba(0,238,247,1) 0%, rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)",
             zIndex: 10,
@@ -48,7 +48,7 @@ const ChannelDetail = () => {
           marginTop="-93px"
         />
       </Box>
-      <Box p={2} display="flex">
+      <Box p={2} display="flex" mb={6}>
         <Box sx={{ mr: { sm: "100px" } }} />
         <Videos videos={videos} direction="row" />
       </Box>

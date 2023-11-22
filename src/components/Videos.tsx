@@ -14,15 +14,19 @@ const Videos = ({ videos, direction }: VideosProps) => {
     <Stack
       direction={direction || "row"}
       flexWrap="wrap"
-      justifyContent="start"
-      alignItems="start"
+      justifyContent="center"
+      alignItems="flex-start"
       gap={2}
+      sx={{
+        height: { xs: "85vh", md: "auto" },
+        overflowY: { sm: "scroll", md: "auto" },
+      }}
     >
       {videos &&
         videos.map((item, idx) => (
           <Box
             key={idx}
-            sx={{ width: { xs: "100%", sm: "358px", md: "320px" } }}
+            sx={{ width: { xs: "100%", sm: "361px", md: "323px" } }}
           >
             {item.id.videoId && (
               <VideoCard videoId={item.id.videoId} snippet={item.snippet} />

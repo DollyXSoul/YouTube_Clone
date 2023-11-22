@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, Card, CardContent, Grid, Avatar } from "@mui/material";
+import {
+  Typography,
+  Card,
+  CardContent,
+  Stack,
+  Avatar,
+  Box,
+} from "@mui/material";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import {
   demoThumbnailUrl,
@@ -21,7 +28,7 @@ const CommentCard = ({ snippet }: CommentCardProps) => (
       borderRadius: 0,
     }}
   >
-    <CardContent sx={{ backgroundColor: "#1E1E1E" }}>
+    <CardContent sx={{ backgroundColor: "#000", pt: 0, pb: 0.5 }}>
       <Link
         to={
           snippet.topLevelComment.snippet?.authorChannelId?.value
@@ -29,35 +36,48 @@ const CommentCard = ({ snippet }: CommentCardProps) => (
             : demoChannelUrl
         }
       >
-        <Grid container wrap="nowrap" spacing={1}>
-          <Grid item>
+        <Stack direction="row" justifyContent={"flex-start"} spacing={1.5}>
+          <Box sx={{ paddingTop: "3px", paddingLeft: "2px" }}>
             <Avatar
+              sx={{ border: "solid 2px white" }}
               alt="UserProfile"
               src={
                 snippet.topLevelComment.snippet?.authorProfileImageUrl ||
                 demoThumbnailUrl
               }
             />
-          </Grid>
-          <Grid item mt={1}>
-            <Typography variant="subtitle1" fontWeight="bold" color="gray">
-              {snippet.topLevelComment.snippet?.authorDisplayName.slice(
-                0,
-                25
-              ) || demoVideoTitle.slice(0, 25)}
-            </Typography>
-          </Grid>
-        </Grid>
+          </Box>
+
+          <Stack>
+            <Box>
+              <Typography variant="subtitle1" fontWeight="bold" color="#e4e4e4">
+                {snippet.topLevelComment.snippet?.authorDisplayName.slice(
+                  0,
+                  25
+                ) || demoVideoTitle.slice(0, 25)}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography variant="subtitle2" color="#FFF">
+                {snippet.topLevelComment.snippet?.textOriginal ||
+                  demoChannelTitle}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant="subtitle2"
+                color="gray"
+                sx={{ height: "22px" }}
+              >
+                <ThumbUpIcon
+                  sx={{ fontSize: "18px", color: "gray", px: "4px", mt: "6px" }}
+                />
+                {snippet.topLevelComment.snippet?.likeCount || "0"}
+              </Typography>
+            </Box>
+          </Stack>
+        </Stack>
       </Link>
-
-      <Typography variant="subtitle2" color="#FFF">
-        {snippet.topLevelComment.snippet?.textOriginal || demoChannelTitle}
-      </Typography>
-
-      <Typography variant="body1" color="gray" sx={{ height: "22px" }}>
-        <ThumbUpIcon sx={{ fontSize: "18px", color: "gray", px: "4px" }} />
-        {snippet.topLevelComment.snippet?.likeCount || "0"}
-      </Typography>
     </CardContent>
   </Card>
 );

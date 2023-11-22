@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Stack, Box, Typography } from "@mui/material";
+import { Stack, Box, Typography, Divider } from "@mui/material";
 import { CommentCard, Loader } from "./";
 import { fetchfromAPI } from "../utilities/fetchfromAPI";
 import { VideoComment } from "../types";
@@ -22,10 +22,11 @@ const Comments = ({ videoId }: CommentsProps) => {
 
   return (
     <Box width="100%">
-      <Typography variant="h5" color="#fff" pb={1}>
+      <Typography variant="h5" color="#fff" mb={0.5} mt={1.5}>
         Comments
       </Typography>
-      <Stack flexWrap="wrap" justifyContent="start" alignItems="start" gap={1}>
+      <Divider color="gray" />
+      <Stack flexWrap="wrap" justifyContent="start" alignItems="start" pt={1.5}>
         {comments &&
           comments.map((item, idx) => (
             <Box key={idx} width="100%">

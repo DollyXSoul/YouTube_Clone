@@ -11,17 +11,19 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }: SideBarProps) => (
   <Stack
     direction="row"
     sx={{
-      overflowY: "auto",
-      height: { sx: "auto", md: "95%" },
-      flexDirection: { md: "column" },
+      height: { xs: "auto", lg: "90%" },
+      flexDirection: { lg: "column" },
+      paddingRight: "12px",
     }}
+    className="sidebar"
   >
     {categories.map((category) => (
       <button
         className="category-btn"
         onClick={() => setSelectedCategory(category.name)}
         style={{
-          background: selectedCategory ? "#FC1503" : "transparent",
+          background:
+            category.name === selectedCategory ? "#FC1503" : "transparent",
           color: "white",
         }}
         key={category.name}
